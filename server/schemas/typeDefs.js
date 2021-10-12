@@ -9,12 +9,12 @@ const typeDefs = gql`
     thoughts: [Thought]!
   }
 
-  type Thought {
+  type Product {
     _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
+    name: String
+    description: String
+    price: Number
+    quantity: Number
   }
 
   type Comment {
@@ -32,8 +32,8 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
+    products: [Product]
+    product(productId: ID!): Product
     me: User
   }
 
