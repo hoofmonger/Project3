@@ -1,0 +1,37 @@
+[
+  {
+    "Name": "black t-shirt",
+    "description": " black t-shirt for 20 dollars high quality",
+    "price": 20,
+    "quantity": 100
+    
+  },
+  {
+    "Name": "White t-shirt",
+    "description": "white t-shirt for 20 dollars high quality",
+    "price": 19.99,
+    "quantity": 100
+    
+  },
+  {
+    "Name": "grey t-shirt",
+    "description": "grey t-shirt for 20 dollars high quality",
+    "price": 20,
+    "quantity": 75
+    
+  },
+  {
+    "Name": "graphic t-shirt",
+    "description": "graphic t-shirt for 20 dollars high quality",
+    "price": 23.99,
+    "quantity": 100
+    
+  },
+  {
+    "Name": "invisable t-shirt",
+    "description": "invisable t-shirt for 20 dollars high quality",
+    "price": 0.01,
+    "quantity": 10000
+  }
+  
+]
