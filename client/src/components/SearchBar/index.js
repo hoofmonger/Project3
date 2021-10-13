@@ -20,6 +20,7 @@ const SearchBar = (props) => {
 
 
 return (
+<Link to= '/SearchResults'>
     <form action="/" onSubmit={handleSearch} method='get'>
         <label htmlFor="header-search">
             <span className= 'visuallyhidden'>Search Products</span>
@@ -32,6 +33,7 @@ return (
         ref = {query}
         />
     </form>
+</Link>
 );
 };
 
