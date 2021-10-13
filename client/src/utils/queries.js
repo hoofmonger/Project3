@@ -15,6 +15,17 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_SEARCH = gql`
+query SearchResults {
+products{
+_id
+name
+description
+price
+quantity
+}}
+`
+
 export const QUERY_THOUGHTS = gql`
   query getThoughts {
     thoughts {
