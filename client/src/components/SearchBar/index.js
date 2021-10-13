@@ -7,12 +7,12 @@ import { useMutation } from '@apollo/client';
 
 const SearchBar = (props) => {
 
-    // const query = useRef();
-//     const handleSearch = (e) => {
-//     e.preventDefault();
-//     const queryVal = query.current.value
-//     props.fetchProduct(queryVal.trim())
-// }
+    const query = useRef();
+    const handleSearch = (e) => {
+    e.preventDefault();
+    const queryVal = query.current.value
+    props.fetchProduct(queryVal.trim())
+}
 
 
 
@@ -20,7 +20,7 @@ const SearchBar = (props) => {
 
 
 return (
-    <form action="/"  method='get'>
+    <form action="/" onSubmit={handleSearch} method='get'>
         <label htmlFor="header-search">
             <span className= 'visuallyhidden'>Search Products</span>
         </label>
@@ -29,6 +29,7 @@ return (
         id = "header-search"
         placeholder = "Search Products"
         name = "s"
+        ref = {query}
         />
     </form>
 );

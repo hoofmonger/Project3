@@ -16,6 +16,9 @@ const resolvers = {
     product: async (parent, { productId }) => {
       return Product.findOne({ _id: productId });
     },
+    searchResults: async (parent, {name}) => {
+      return Product.find({name});
+    },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('thoughts');

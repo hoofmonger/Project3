@@ -33,6 +33,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     products: [Product]
+    searchResults(name: String): [Product]
     product(productId: ID!): Product
     me: User
   }
