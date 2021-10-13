@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 
 
 
@@ -32,6 +32,7 @@ return (
         name = "s"
         ref = {query}
         />
+        <button>Search!</button>
     </form>
 </Link>
 );

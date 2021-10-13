@@ -6,15 +6,14 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    thoughts: [Thought]!
   }
-
+ 
   type Product {
     _id: ID
     name: String
     description: String
-    price: Number
-    quantity: Number
+    price: Int
+    quantity: Int
   }
 
 
