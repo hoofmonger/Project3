@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useRef}from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
-
+import { SearchResults } from '../../pages/SearchResults';
+import {QUERY_PRODUCTS, QUERY_SEARCH} from '../../utils/queries'
 
 
 
@@ -11,8 +12,18 @@ const SearchBar = (props) => {
     const handleSearch = (e) => {
     e.preventDefault();
     const queryVal = query.current.value
-    props.fetchProduct(queryVal.trim())
+    console.log(queryVal)
 }
+
+
+
+  const { data: productData } = useQuery(QUERY_SEARCH);
+
+ 
+  const handleClick = (name) => {
+    
+  }
+
 
 
 
@@ -20,9 +31,10 @@ const SearchBar = (props) => {
 
 
 return (
-<Link to= '/SearchResults'>
+
     <form action="/" onSubmit={handleSearch} method='get'>
-        <label htmlFor="header-search">
+      {/* <Link to= {`/SearchResults/${product.name}`}> */}  
+      <label htmlFor="header-search">
             <span className= 'visuallyhidden'>Search Products</span>
         </label>
         <input 
@@ -32,9 +44,11 @@ return (
         name = "s"
         ref = {query}
         />
-        <button>Search!</button>
+        <button
+        onSubmit = {SearchResults} >Search!</button>
+    {/* </Link> */}
     </form>
-</Link>
+
 );
 };
 
