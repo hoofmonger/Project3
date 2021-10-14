@@ -7,7 +7,7 @@ import { QUERY_PRODUCTS } from '../utils/queries';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
-  const thoughts = data?.thoughts || [];
+  const products = data?.products || [];
 
   return (
     <main>
