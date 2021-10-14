@@ -16,6 +16,15 @@ const typeDefs = gql`
     quantity: Int
   }
 
+  type Checkout {
+    session: ID
+  }
+
+  type Order {
+    _id: ID
+    purchaseDate: String
+    products: [Product]
+  }
 
   type Auth {
     token: ID!
@@ -29,10 +38,12 @@ const typeDefs = gql`
     searchResults(name: String): [Product]
     product(productId: ID!): Product
     me: User
+    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
+    addOrder(products: [ID]!): Order
     login(email: String!, password: String!): Auth
   }
 `;
