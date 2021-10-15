@@ -5,6 +5,9 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
+    categories: async () => {
+      return await Category.find();
+    },
     products: async () => {
       return Product.find();
     },
@@ -55,7 +58,19 @@ const resolvers = {
       });
 
       return { session: session.id };
-    }
+    },
+    order: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'orders.products',
+          populate: 'category'
+        });
+
+        return user.orders.id(_id);
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
   },
 
   Mutation: {
@@ -75,6 +90,18 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
+    },
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    updateProduct: async (parent, { _id, quantity }) => {
+      const decrement = Math.abs(quantity) * -1;
+
+      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
