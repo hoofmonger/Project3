@@ -20,8 +20,11 @@ const SearchBar = (props) => {
   const { data: productData } = useQuery(QUERY_SEARCH);
 
  
-  const handleClick = (name) => {
-    
+  const handleClick = (event) => {
+    event.preventDefault()
+    const queryVal = query.current.value
+    console.log('ca;kldfj;skla')
+    console.log(queryVal)
   }
 
 
@@ -32,7 +35,7 @@ const SearchBar = (props) => {
 
 return (
 
-    <form action="/" onSubmit={handleSearch} method='get'>
+    <form action="/" method='get'>
       {/* <Link to= {`/SearchResults/${product.name}`}> */}  
       <label htmlFor="header-search">
             <span className= 'visuallyhidden'>Search Products</span>
@@ -45,7 +48,7 @@ return (
         ref = {query}
         />
         <button
-        onSubmit = {SearchResults} >Search!</button>
+        onClick = {handleClick} >Search!</button>
     {/* </Link> */}
     </form>
 
