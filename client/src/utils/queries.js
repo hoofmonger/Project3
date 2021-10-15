@@ -15,13 +15,14 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_PRODUCTS = gql`
+  query getProducts {
+    products {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      name
+      description
+      price
+      quantity
     }
   }
 `;

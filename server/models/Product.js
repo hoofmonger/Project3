@@ -1,8 +1,7 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
 const productSchema = new Schema({
-  Name: {
+  name: {
     type: String,
     required: 'You need to leave a thought!',
     minlength: 1,
@@ -20,7 +19,7 @@ const productSchema = new Schema({
     trim: true,
   },
   quantity: {
-    type: Number,
+    type: Number
   }
 });
 
