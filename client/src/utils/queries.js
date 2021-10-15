@@ -26,23 +26,26 @@ export const QUERY_PRODUCTS = gql`
     }
   }
 `;
-
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
+      session
     }
   }
 `;
+
+export const QUERY_SEARCH = gql`
+query SearchResults {
+products{
+_id
+name
+description
+price
+quantity
+}}
+`
+
+
 
 export const QUERY_ME = gql`
   query me {

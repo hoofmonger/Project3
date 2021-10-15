@@ -16,11 +16,14 @@ const typeDefs = gql`
     quantity: Int
   }
 
-  type Comment {
+  type Checkout {
+    session: ID
+  }
+
+  type Order {
     _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
+    purchaseDate: String
+    products: [Product]
   }
 
   type Auth {
@@ -32,14 +35,20 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     products: [Product]
+    searchResults(name: String): [Product]
     product(productId: ID!): Product
     me: User
+    checkout(products: [ID]!): Checkout
+    order(_id: ID!): Order
+    categories: [Category]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
+    addOrder(products: [ID]!): Order
     login(email: String!, password: String!): Auth
-    
+    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    updateProduct(_id: ID!, quantity: Int!): Product
   }
 `;
 
