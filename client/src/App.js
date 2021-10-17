@@ -15,7 +15,7 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { SearchResults } from './pages/SearchResults';
+import  SearchResults  from './pages/SearchResults';
 import "./App.css"
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -64,8 +64,12 @@ function App() {
               <Profile />
             </Route>
             <Route exact path ='/SearchResults/:name'>
-              <SearchResults>s
-              </SearchResults>
+              <SearchResults />
+             
+            </Route>
+            <Route exact path ='/searchresults/'>
+              <SearchResults />
+             
             </Route>
 
           </div>
