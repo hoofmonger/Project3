@@ -16,6 +16,7 @@ console.log("products on home page?", products)
 
 const handleSearchChange = (e)=>{
   setSearchQuery(e.target.value)
+  console.log(searchQuery)
 }
 
 function filtering(){
@@ -24,7 +25,7 @@ function filtering(){
   } 
   else {
     const filteredProducts = products.filter((product)=>{
-      return product.name === searchQuery
+      return product.name.includes(searchQuery) 
     });
     return filteredProducts
     // class NameForm extends React.SearchBar {
