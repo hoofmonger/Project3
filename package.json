@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "graphql": "^15.6.1"
+    "graphql": "^15.6.1",
+    "stripe": "^8.182.0"
   }
 }
