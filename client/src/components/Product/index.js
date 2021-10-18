@@ -14,7 +14,7 @@ function Product({_id, name, description, price, quantity}) {
             <h3>
                 {price + quantity}
             </h3>  
-            <a>Add to cart</a>
+            <a href="/cart">Add to cart</a>
     </li>
     )
 }
