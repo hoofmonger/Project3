@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import Auth from '../../utils/auth';
+import Cart from "../Cart";
 
 const Header = () => {
   const logout = (event) => {
@@ -13,11 +13,11 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">Fun Store!</h1>
+            <h1 className="m-0">Shirt Shop</h1>
           </Link>
-          <p className="m-0">Shop around for the most fun products on the Internet!</p>
         </div>
         <div>
+          
           {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
@@ -29,6 +29,7 @@ const Header = () => {
             </>
           ) : (
             <>
+              
               <Link className="btn btn-lg btn-info m-2" to="/login">
                 Login
               </Link>

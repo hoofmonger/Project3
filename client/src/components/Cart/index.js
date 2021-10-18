@@ -5,14 +5,15 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
-import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
+import { useDispatch, useSelector } from "react-redux";
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
-  const [state, dispatch] = useStoreContext();
+  const dispatch = useDispatch();
+  const state = useSelector(state => state)
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
@@ -62,16 +63,14 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
+      <div className="cart-closed " onClick={toggleCart}>
+        <img src="/images/icons8-shopping-bag-100.png" aria-label="trash"/>
       </div>
     );
   }
 
   return (
-    <div className="cart">
+    <div className="cart bg-white">
       <div className="close" onClick={toggleCart}>
         [close]
       </div>
@@ -93,12 +92,9 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
+          <h3>
+            You haven't added anything to your cart yet!
+          </h3>
       )}
     </div>
   );

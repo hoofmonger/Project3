@@ -15,6 +15,18 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_PRODUCTS = gql`
+  query getProducts {
+    products {
+      _id
+      name
+      description
+      price
+      quantity
+      image
+    }
+  }
+`;
 export const QUERY_CHECKOUT = gql`
   query getCheckout($products: [ID]!) {
     checkout(products: $products) {
@@ -35,17 +47,6 @@ export const QUERY_SEARCH = gql`
   }
 `;
 
-export const QUERY_PRODUCTS = gql`
-  query getProducts {
-    products {
-      _id
-      name
-      description
-      price
-      quantity
-    }
-  }
-`;
 
 export const QUERY_ME = gql`
   query me {
