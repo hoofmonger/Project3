@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
+import { useQuery } from "@apollo/client";
 import SearchBar from "../components/SearchBar";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import Product from "../components/Product";
