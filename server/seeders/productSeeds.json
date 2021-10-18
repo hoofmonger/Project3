@@ -3,7 +3,8 @@
     "name": "black t-shirt",
     "description": " black t-shirt for 20 dollars high quality",
     "price": 20,
-    "quantity": 100
+    "quantity": 100,
+    "image": "blackshirt.jpg"
     
   },
   {

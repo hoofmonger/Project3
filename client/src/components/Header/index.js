@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -18,6 +17,7 @@ const Header = () => {
           <p className="m-0">Get into the mind of a programmer.</p>
         </div>
         <div>
+          
           {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
@@ -29,6 +29,7 @@ const Header = () => {
             </>
           ) : (
             <>
+              
               <Link className="btn btn-lg btn-info m-2" to="/login">
                 Login
               </Link>

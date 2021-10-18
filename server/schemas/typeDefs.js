@@ -14,6 +14,7 @@ const typeDefs = gql`
     description: String!
     price: Float
     quantity: Int
+    image: String
   }
 
   type Checkout {
@@ -30,7 +31,10 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
-
+  type Category {
+    _id: ID
+    name: String
+  }
   type Query {
     users: [User]
     user(username: String!): User

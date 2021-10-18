@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import SearchBar from '../components/SearchBar';
 import Product from '../components/Product'
 import { QUERY_PRODUCTS } from '../utils/queries';
-
+import Cart from '../components/Cart'
 const Home = () => {
   
   const { loading, data,error } = useQuery(QUERY_PRODUCTS);
@@ -20,12 +20,10 @@ const Home = () => {
     <main>
     {console.log(products)}
       <div className="flex-row justify-center ">
-        
-          <Product 
-            products={products}
-            />
+        <SearchBar/>
+        <Product products={products}/>
       </div>
-      <SearchBar/>
+      <Cart/>
       <div className="flex-row justify-center">
         <div
           className="col-12 col-md-10 mb-3 p-3"
