@@ -43,7 +43,7 @@ function ProductItem(item) {
     return (
         <div className="px-1 py-1 mx-auto text-center col-4">
         <Link to={`/products/${_id}`}>
-            <img
+            <img className="img-flex col-6"
             alt={name}
             src={`/images/${image}`}
             />
