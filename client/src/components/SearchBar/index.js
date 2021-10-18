@@ -1,56 +1,31 @@
-import React, {useRef}from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
-import { SearchResults } from '../../pages/SearchResults';
-import {QUERY_PRODUCTS, QUERY_SEARCH} from '../../utils/queries'
+import React from "react";
 
+const SearchBar = ({ handleSearchChange }) => {
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log("test");
 
+    try {
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-const SearchBar = (props) => {
-
-    const query = useRef();
-    const handleSearch = (e) => {
-    e.preventDefault();
-    const queryVal = query.current.value
-    console.log(queryVal)
-}
-
-
-
-  const { data: productData } = useQuery(QUERY_SEARCH);
-
- 
-  const handleClick = (name) => {
-    
-  }
-
-
-
-
-
-
-
-return (
-
-    <form action="/" onSubmit={handleSearch} method='get'>
-      {/* <Link to= {`/SearchResults/${product.name}`}> */}  
+  return (
+    <form action="/" method="get">
       <label htmlFor="header-search">
-            <span className= 'visuallyhidden'>Search Products</span>
-        </label>
-        <input 
-        type='text'
-        id = "header-search"
-        placeholder = "Search Products"
-        name = "s"
-        ref = {query}
-        />
-        <button
-        onSubmit = {SearchResults} >Search!</button>
-    {/* </Link> */}
+        <span className="visuallyhidden">Search Products</span>
+      </label>
+      <input
+        type="text"
+        id="header-search"
+        placeholder="Search Products"
+        name="s"
+        onChange={handleSearchChange}
+      />
+      <button onClick={handleClick}>Search!</button>
     </form>
-
-);
+  );
 };
 
-
-export default SearchBar
+export default SearchBar;
