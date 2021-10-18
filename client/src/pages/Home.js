@@ -7,7 +7,7 @@ import { QUERY_PRODUCTS } from "../utils/queries";
 import Product from "../components/Product";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { data } = useQuery(QUERY_PRODUCTS);
   const products = data?.products || [];
   const [searchQuery, setSearchQuery] = useState("");
   console.log("products on home page?", products);
@@ -32,10 +32,6 @@ const Home = () => {
       <h2>Products</h2>
       <SearchBar handleSearchChange={handleSearchChange} />
       <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: "1px dotted #1a1a1a" }}
-        ></div>
       </div>
 
       {products.length ? (
